@@ -51,6 +51,18 @@ if !exists('$DOTVIM')
     delfunction s:get_dotvimdir_var
 endif "}}}
 
+" get word selected on visual mode
+function! s:get_selected()
+    let save_z = getreg('z', 1)
+    let save_z_type = getregtype('z')
+
+    try
+        normal! gv"zy
+        return @z
+    finally
+        call setreg('z', save_z, save_z_type)
+    endtry
+endfunction
 
 " syntax folding setting
 " required foldmethod=syntax
@@ -264,6 +276,58 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
+" help with tabpage
+" with '!' force create tabpage
+command! -bang -bar -nargs=? -complete=help Help
+    \ call s:help_with_tabpage('help', <q-args>, <q-bang>)
+" helpgrep (use location list) with tabpage
+command! -bang -bar -nargs=? -complete=help HelpGrep
+    \ call s:help_with_tabpage('lhelpgrep', <q-args>, <q-bang>)
+function! s:help_with_tabpage(cmd, word, bang) abort
+    " save the current tabpage
+    let cur_tab_nr = tabpagenr()
+    let tab_nr = 0
+
+    try
+        if empty(a:bang)
+            let tab_nr = s:search_help_tab()
+        endif
+        call s:execute_with_tabpage(a:cmd . ' ' . a:word, tab_nr)
+
+    catch /^Vim(help):/
+        " if error occured, back to tabpage
+        execute 'tabnext ' . cur_tab_nr
+        echoerr matchstr(v:exception, 'Vim(help):\zs.*$')
+    endtry
+endfunction
+
+" search tabpage number which include help buffer
+" return found first tabpage number
+" or return 0 if not found
+function! s:search_help_tab() abort
+    for tab_nr in range(tabpagenr('$'))
+        for buf_nr in tabpagebuflist(tab_nr + 1)
+            if getbufvar(buf_nr, '&l:buftype') == 'help'
+                return tab_nr + 1
+            endif
+        endfor
+    endfor
+
+    " not found when if reached
+    return 0
+endfunction
+
+" execute command with tabpage
+" if a:tab_nr is not 0 then open at this tabpage
+" else open new tab and execute command
+function! s:execute_with_tabpage(cmd, tab_nr)
+    if a:tab_nr != 0
+        execute join(['tabnext', a:tab_nr, '|', a:cmd])
+    else
+        execute 'tab ' . a:cmd
+    endif
+endfunction
+
 " capture the messages such as :messages
 command! -nargs=+ -complete=command Capture call s:CmdCapture(<q-args>)
 function! s:CmdCapture(args) "{{{
@@ -351,7 +415,11 @@ nnoremap gl g$
 xnoremap gl g$
 onoremap gl $
 
-" 'Y' is like 'D'
+" grep
+nnoremap gr :<C-u>lgrep <C-r><C-w> *
+xnoremap gr :<C-u>lgrep <C-r>=<SID>get_selected()<CR> *
+
+" 'Y' works between cursor and eol like 'D'
 nnoremap Y y$
 
 " put text no change the latest yanked on visual mode
@@ -384,6 +452,10 @@ xnoremap g+ g<C-a>
 nnoremap - <C-x>
 xnoremap - <C-x>
 xnoremap g- g<C-x>
+
+" view the help for <cword>
+nnoremap <silent> <F1> :<C-u>Help <C-r><C-w><CR>
+xnoremap <silent> <F1> :<C-u>Help <C-r>=<SID>get_selected()<CR><CR>
 
 " change directory at the buffer file
 nnoremap <F2> :<C-u>cd %:p:h<Bar>echo 'cd :' expand('%:p:h')<CR>

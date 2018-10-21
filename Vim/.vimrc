@@ -7,6 +7,9 @@ if &compatible
     set nocompatible
 endif
 
+" syntax
+syntax enable
+
 " initialize autocmd
 augroup MyAutocmd
     autocmd!

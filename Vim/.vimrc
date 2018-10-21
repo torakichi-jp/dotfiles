@@ -199,18 +199,6 @@ if has('mouse')
     set mouse=a
 endif
 
-" transparency (kaoriya only)
-" Note: must be autocmd
-if exists('&transparency') && s:is_gui
-    if s:is_windows
-        set transparency=215
-        augroup MyAutocmd
-            autocmd FocusGained * set transparency=215
-            autocmd FocusLost * set transparency=180
-        augroup END
-    endif
-endif
-
 " backup options
 set writebackup                                 " create backup before file writing,
 set nobackup                                    " but not keep

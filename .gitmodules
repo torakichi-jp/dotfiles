@@ -1,0 +1,6 @@
+[submodule "Vim/.vim/pack/mypackages/start/lightline.vim"]
+	path = Vim/.vim/pack/mypackages/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "Vim/.vim/pack/mypackages/start/landscape.vim"]
+	path = Vim/.vim/pack/mypackages/start/landscape.vim
+	url = https://github.com/itchyny/landscape.vim

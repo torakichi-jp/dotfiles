@@ -110,6 +110,7 @@ let g:lightline = {
         \ 'right': [ [ 'close' ], [ 'currentdir' ] ]
     \ },
 \ }
+"}}}
 
 " mouse behaves Windows
 behave mswin
@@ -164,7 +165,7 @@ set fileencodings=utf-8,cp932,euc-jp,ucs-2le,default,latin1
 set fileformats=unix,dos
 
 set number                      " show line numbers
-"set ruler                      " show ruler
+"set ruler                       " show ruler
 set showcmd                     " show inserted command
 set wrap                        " wrap line of right edge
 set display=lastline            " show lastline as much as possible
@@ -181,7 +182,7 @@ set autoindent                  " enable auto indent
 set smartindent                 " enable smart indent
 set cinoptions=:0,l1,g0,m1      " indent option for C/C++
 set switchbuf=split,newtab      " switch buffer option
-"set tabline=%!MakeTabLine()    " tabline string
+"set tabline=%!MakeTabLine()     " tabline string
 set helpheight=0                " min height of help
 set helplang=ja                 " help language priority
 set pumheight=10                " max height of popup menu
@@ -202,7 +203,7 @@ set timeoutlen=3000             " wait time(ms) of key mappings
 set selectmode=                 " not use select mode
 set selection=inclusive         " last character of selection is included in operation
 set scrolloff=2                 " offset around cursor in vertical scroll
-set sidescroll=1                " step of horizontal scroll
+set sidescroll=1                " steps of horizontal scroll
 set sidescrolloff=1             " offset around cursor in horizontal scroll
 set colorcolumn=81              " highlight column at 81
 set ambiwidth=double            " show wide character as twice as half character
@@ -239,8 +240,6 @@ endif
 autocmd MyAutocmd BufEnter *
     \ let &l:numberwidth = len(line('$')) + 2
     \ | let &showbreak = "\u00bb\u00bb" . repeat(' ', len(line('$')))
-
-"}}}
 
 " tab, indent options
 set tabstop=4           " tab width to display
@@ -554,18 +553,6 @@ nnoremap <silent> [Space]gv :<C-u>edit $MYGVIMRC<CR>
 nnoremap <silent> [Space]<CR> :<C-u>echo 'sourcing...'<bar>so %<bar>do FileType<CR>
 
 " textobj mappings
-" <angle>
-onoremap aa  a>
-xnoremap aa  a>
-onoremap ia  i>
-xnoremap ia  i>
-
-" [rectangle]
-onoremap ar  a]
-xnoremap ar  a]
-onoremap ir  i]
-xnoremap ir  i]
-
 " 'quote'
 onoremap aq  a'
 xnoremap aq  a'

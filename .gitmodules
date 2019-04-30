@@ -4,3 +4,6 @@
 [submodule "Vim/.vim/pack/mypackages/start/landscape.vim"]
 	path = Vim/.vim/pack/mypackages/start/landscape.vim
 	url = https://github.com/itchyny/landscape.vim
+[submodule "Vim/.vim/pack/mypackages/start/indentLine"]
+	path = Vim/.vim/pack/mypackages/start/indentLine
+	url = git@github.com:Yggdroot/indentLine

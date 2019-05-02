@@ -120,6 +120,18 @@ endfunction
 function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
+ 
+function! MyCurrentDir()
+    let cur_dir = fnamemodify(getcwd(), ':~')
+    if strlen(cur_dir) > &columns / 2
+        let cur_dir = '.../' . fnamemodify(cur_dir, ':t')
+    endif
+    return cur_dir
+endfunction
+
+function! MyCloseTab(n)
+    return '%' . a:n . 'X X'
+endfunction
 "}}}
 
 " mouse behaves Windows

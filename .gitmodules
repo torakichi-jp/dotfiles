@@ -7,3 +7,6 @@
 [submodule "Vim/.vim/pack/mypackages/start/indentLine"]
 	path = Vim/.vim/pack/mypackages/start/indentLine
 	url = git@github.com:Yggdroot/indentLine
+[submodule "Vim/.vim/pack/mypackages/start/vim-devicons"]
+	path = Vim/.vim/pack/mypackages/start/vim-devicons
+	url = git@github.com:ryanoasis/vim-devicons

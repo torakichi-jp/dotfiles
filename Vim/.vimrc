@@ -94,7 +94,9 @@ let g:lightline = {
         \ 'readonly': '%{&readonly?"\u2b64":""}',
     \ },
     \ 'component_function': {
-        \ 'currentdir': 'MyCurrentDir'
+        \ 'currentdir': 'MyCurrentDir',
+        \ 'filetype': 'MyFiletype',
+        \ 'fileformat': 'MyFileformat'
     \ },
     \ 'tab_component_function': {
         \ 'closetab': 'MyCloseTab'
@@ -110,6 +112,14 @@ let g:lightline = {
         \ 'right': [ [ 'close' ], [ 'currentdir' ] ]
     \ },
 \ }
+
+function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 "}}}
 
 " mouse behaves Windows

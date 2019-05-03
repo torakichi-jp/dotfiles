@@ -69,6 +69,7 @@ set linespace=2     " 行間
 " フォント設定
 let fonts = []
 if s:is_windows
+    call add(fonts, 'RictyDiscord_NF:h12:cDEFAULT')
     call add(fonts, 'Ricty_Diminished_for_Powerline:h12:cDEFAULT')
     call add(fonts, 'ＭＳ_ゴシック:h12:cDEFAULT')
 elseif s:is_unix

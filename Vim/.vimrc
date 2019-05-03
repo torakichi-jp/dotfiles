@@ -91,7 +91,8 @@ let g:doxygen_enhanced_color = 1
 let g:lightline = {
     \ 'colorscheme': 'landscape',
     \ 'component': {
-        \ 'readonly': '%{&readonly?"\u2b64":""}',
+        \ 'readonly': '%{&readonly?"":""}',
+        \ 'lineinfo': '%3l:%-2v',
     \ },
     \ 'component_function': {
         \ 'currentdir': 'MyCurrentDir',
@@ -101,12 +102,8 @@ let g:lightline = {
     \ 'tab_component_function': {
         \ 'closetab': 'MyCloseTab'
     \ },
-    \ 'separator': {
-        \ 'left': "\u2b80", 'right': "\u2b82"
-    \ },
-    \ 'subseparator': {
-        \ 'left': "\u2b81", 'right': "\u2b83"
-    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' },
     \ 'tabline': {
         \ 'left': [ [ 'tabs' ] ],
         \ 'right': [ [ 'close' ], [ 'currentdir' ] ]

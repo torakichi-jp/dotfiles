@@ -169,7 +169,9 @@ endfunction
 "}}}
 
 " colorscheme settings
-set t_Co=256
+if !s:is_gui && !s:is_windows_cui
+    set t_Co=256
+endif
 try
     colorscheme landscape
 catch /^Vim(colorscheme):/

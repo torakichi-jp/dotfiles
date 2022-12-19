@@ -87,12 +87,6 @@ let g:vim_indent_cont = 0
 let g:load_doxygen_syntax = 1
 let g:doxygen_enhanced_color = 1
 
-" deoplete.nvim
-let g:deoplete#enable_at_startup = 0
-let g:python3_host_prog='python'
-command DeopleteEnable call deoplete#enable()
-autocmd MyAutocmd InsertEnter * call deoplete#enable()
-
 " lightline.vim "{{{
 let g:lightline = {
     \ 'colorscheme': 'landscape',

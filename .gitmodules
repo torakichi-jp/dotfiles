@@ -10,12 +10,3 @@
 [submodule "Vim/.vim/pack/mypackages/start/vim-devicons"]
 	path = Vim/.vim/pack/mypackages/start/vim-devicons
 	url = git@github.com:ryanoasis/vim-devicons
-[submodule "Vim/.vim/pack/mypackages/start/deoplete.nvim"]
-	path = Vim/.vim/pack/mypackages/start/deoplete.nvim
-	url = git@github.com:Shougo/deoplete.nvim
-[submodule "Vim/.vim/pack/mypackages/start/nvim-yarp"]
-	path = Vim/.vim/pack/mypackages/start/nvim-yarp
-	url = git@github.com:roxma/nvim-yarp
-[submodule "Vim/.vim/pack/mypackages/start/vim-hug-neovim-rpc"]
-	path = Vim/.vim/pack/mypackages/start/vim-hug-neovim-rpc
-	url = git@github.com:roxma/vim-hug-neovim-rpc

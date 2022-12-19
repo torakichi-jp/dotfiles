@@ -10,3 +10,6 @@
 [submodule "Vim/.vim/pack/mypackages/start/vim-devicons"]
 	path = Vim/.vim/pack/mypackages/start/vim-devicons
 	url = git@github.com:ryanoasis/vim-devicons
+[submodule "Vim/.vim/pack/mypackages/start/vimdoc-ja"]
+	path = Vim/.vim/pack/mypackages/start/vimdoc-ja
+	url = git@github.com:vim-jp/vimdoc-ja.git

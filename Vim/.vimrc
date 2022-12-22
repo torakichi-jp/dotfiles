@@ -169,7 +169,7 @@ endfunction
 "}}}
 
 " colorscheme settings
-if !s:is_gui && !s:is_windows_cui
+if !s:is_gui
     set t_Co=256
 endif
 try

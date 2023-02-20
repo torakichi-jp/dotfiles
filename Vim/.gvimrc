@@ -17,7 +17,7 @@ set cursorline                  " highlight the current line
 set title                       " show title
 "set mousefocus                 " window focus with mouse
 "set mousemodel=popup_setpos    " 右クリックでカーソル移動＆メニュー表示
-"set ambiwidth=double            " show the wide character as twice as the half character
+set ambiwidth=double            " show the wide character as twice as the half character
 if s:is_windows && has('directx')
     " use the DirectX rendering
     set renderoptions=type:directx,renmode:5
@@ -71,6 +71,7 @@ let fonts = []
 if s:is_windows
     "call add(fonts, 'Ricty_NF:h12:cDEFAULT')
     "call add(fonts, 'Ricty_Diminished_for_Powerline:h12:cDEFAULT')
+    call add(fonts, 'Cica:h12:cDEFAULT')
     call add(fonts, 'HackGen_Console_NFJ:h12:cDEFAULT')
     call add(fonts, 'ＭＳ_ゴシック:h12:cDEFAULT')
 elseif s:is_unix

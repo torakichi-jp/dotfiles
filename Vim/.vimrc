@@ -227,7 +227,7 @@ set scrolloff=2                 " offset around cursor in vertical scroll
 set sidescroll=1                " steps of horizontal scroll
 set sidescrolloff=1             " offset around cursor in horizontal scroll
 set colorcolumn=81              " highlight column at 81
-set ambiwidth=double            " show wide character as twice as half character
+"set ambiwidth=double            " show wide character as twice as half character
 
 " formatoptions setting
 " when joining lines, don't insert a space between multi-byte characters

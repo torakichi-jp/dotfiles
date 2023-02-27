@@ -89,6 +89,9 @@ unlet fonts
 " 保存
 "nnoremap <C-s> :<C-u>update<CR>
 
+" .gvimrc 編集
+nnoremap <silent> <Space>gv :<C-u>edit $MYGVIMRC<CR>
+
 " GUIウィンドウ最大化・元に戻す
 nnoremap <silent> <M-x> :<C-u>ScreenMode 4<CR>
 nnoremap <silent> <M-r> :<C-u>Revert<CR>

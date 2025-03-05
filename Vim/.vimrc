@@ -360,6 +360,13 @@ command! -bang -bar -nargs=? -complete=help Help
 " helpgrep (use location list) with tabpage
 command! -bang -bar -nargs=? -complete=help HelpGrep
     \ call s:help_with_tabpage('lhelpgrep', <q-args>, <q-bang>)
+
+" abbreviations for the above Help commands
+cnoreabbrev h Help
+cnoreabbrev hg HelpGrep
+
+" open help with tabpage
+" to use for the above commands
 function! s:help_with_tabpage(cmd, word, bang) abort
     " save the current tabpage
     let cur_tab_nr = tabpagenr()

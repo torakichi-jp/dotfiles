@@ -13,3 +13,6 @@
 [submodule "Vim/.vim/pack/mypackages/start/vimdoc-ja"]
 	path = Vim/.vim/pack/mypackages/start/vimdoc-ja
 	url = git@github.com:vim-jp/vimdoc-ja.git
+[submodule "Vim/.vim/pack/mypackages/start/vim-ambiwidth"]
+	path = Vim/.vim/pack/mypackages/start/vim-ambiwidth
+	url = https://github.com/rbtnn/vim-ambiwidth.git

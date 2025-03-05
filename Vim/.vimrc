@@ -379,14 +379,14 @@ function! s:help_with_tabpage(cmd, word, bang) abort
         call s:execute_with_tabpage(a:cmd . ' ' . a:word, tab_nr)
 
     catch /^Vim(help):/
-        " if error occured, back to tabpage
+        " if error has occurred, go to the original tabpage
         execute 'tabnext ' . cur_tab_nr
         echoerr matchstr(v:exception, 'Vim(help):\zs.*$')
     endtry
 endfunction
 
-" search tabpage number which include help buffer
-" return found first tabpage number
+" search a tabpage number that includes a help buffer
+" return the first tabpage number if found
 " or return 0 if not found
 function! s:search_help_tab() abort
     for tab_nr in range(tabpagenr('$'))
@@ -403,7 +403,7 @@ endfunction
 
 " execute command with tabpage
 " if a:tab_nr is not 0 then open at this tabpage
-" else open new tab and execute command
+" else open a new tabpage and execute command
 function! s:execute_with_tabpage(cmd, tab_nr)
     if a:tab_nr != 0
         execute join(['tabnext', a:tab_nr, '|', a:cmd])
@@ -443,7 +443,7 @@ augroup MyAutocmd
     " no backups when edit git commit message
     autocmd FileType gitcommit setlocal nobackup noundofile noswapfile
 
-    " open as read-only if exist swapfile
+    " open as read-only if its swapfile exists
     autocmd SwapExists * let v:swapchoice = 'o' |
         \ call confirm('Exists the swapfile for "' . expand('%') . "\".\n
             \ Open it as read-only.")
